@@ -76,9 +76,6 @@ public class ProductController {
 //			
 //			----테스트 끝---			
 			
-
-
-			
 			
 	        PrintWriter printWriter=resp.getWriter();
 			
@@ -91,30 +88,11 @@ public class ProductController {
 			String callback=req.getParameter("CKEditorFuncNum");
 			//window.parent.CKEDITOR.tools.callFunction(1(성공) or 0(실패),이미지 주소 url반환,성공 메시지)
 			
-			
-			/**처리 결과를 JSON으로 출력하기**/
-			JsonObject json = new JsonObject();
-			
-		  json.addProperty("uploaded", 1);
-          json.addProperty("fileName", savedfile);
-          json.addProperty("url", fileUrl);
-
-
-			
-//			Map<String, Object> data = new HashMap<String, Object>();
-//			data.put("uploaded",1);
-//			data.put("fileName",savedfile );
-//			data.put("url",fileUrl);
-			
-			
-			
-			printWriter.println(json);
-			
-//			printWriter.println(
-//				"<script>window.parent.CKEDITOR.tools.callFunction("
-//				+callback+",'"+fileUrl+"','이미지가 업로드되었습니다.')"
-//				+"</script>"
-//	        		);
+			printWriter.println(
+				"<script>window.parent.CKEDITOR.tools.callFunction("
+				+callback+",'"+fileUrl+"','이미지가 업로드되었습니다.')"
+				+"</script>"
+	        		);
 	        printWriter.flush();		
 	}
 
